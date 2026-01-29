@@ -1,0 +1,11 @@
+# Obsidian settings/cache
+.obsidian/workspace*
+.obsidian/cache
+.obsidian/plugins/*/data.json
+
+# OS junk
+.DS_Store
+
+# Secrets
+.env
+
