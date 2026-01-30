@@ -27,4 +27,8 @@
 - Data Lakehouse - Incorporated the controls, data management, and data structures that exist in a data warehouse while still housing the data in object storage. It supports ACID transactions which the data lake does not.
 - Lambda Architecture - where you have systems operating independently from each other -- Batch, streaming, serving. It has many challenges and not very popular or recommended.
 - Kappa Architecture - Where a stream processing platform acts as the backbone of all data handling -- Ingestion, storage, and serving.
-- 
+
+## Chapter 4 
+- Core purpose of data engineering is to design robust and reliable systems to carry data through the full data engineering lifecycle and save it according to the needs of users.
+- In Data Engineering, Architecture does NOT equal tools. Architecture is the what, why, and when. Tools are the how. Architecture comes first and tools come second. 
+- On Premises VS Cloud VS Serverless - On premises is the default for established companies, this is where companies own their own hardware which live in data centers or leased colocation space. Cloud is where you rent hardware instead of purchasing it, typically you rent from providers like AWS, Azure, Google Cloud, etc. Serverless is basically many invisible servers where you have less control and are managed by the providers.
