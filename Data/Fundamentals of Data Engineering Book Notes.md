@@ -32,3 +32,10 @@
 - Core purpose of data engineering is to design robust and reliable systems to carry data through the full data engineering lifecycle and save it according to the needs of users.
 - In Data Engineering, Architecture does NOT equal tools. Architecture is the what, why, and when. Tools are the how. Architecture comes first and tools come second. 
 - On Premises VS Cloud VS Serverless - On premises is the default for established companies, this is where companies own their own hardware which live in data centers or leased colocation space. Cloud is where you rent hardware instead of purchasing it, typically you rent from providers like AWS, Azure, Google Cloud, etc. Serverless is basically many invisible servers where you have less control and are managed by the providers.
+- When to build vs buy in terms of on premises/cloud: Choose to invest and customize when doing so will give your company a competitive advantage, otherwise, don't.
+
+## Chapter 5 - Data Generation in Source Systems
+- Data can be defined as an unorganized, context-less creation of facts and figures. There are 2 main and broad types of data: Analog data, which occurs in the real world like vocal speech, asl, writing, etc. There is also digital data, which is created by either converting analog data to digital form or is the native product of a digital system.
+- Files: Are important to understand when learning about computers and data engineering. They can be defined as a sequence of bytes, typically stored on a disk. They may store parameters, events, logs, images, etc. There are 3 main broad types of files: 1) structured files like excels or csvs 2) semi-structured files like json, xml, and also csvs. 3) unstructured files like txt.
+- API: Stands for application programming interface and is a standard way of exchanging data between systems, especially in the cloud...
+- 
