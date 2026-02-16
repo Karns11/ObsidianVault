@@ -39,4 +39,43 @@
 - Files: Are important to understand when learning about computers and data engineering. They can be defined as a sequence of bytes, typically stored on a disk. They may store parameters, events, logs, images, etc. There are 3 main broad types of files: 1) structured files like excels or csvs 2) semi-structured files like json, xml, and also csvs. 3) unstructured files like txt.
 - API: Stands for application programming interface and is a standard way of exchanging data between systems, especially in the cloud. 
 - There are 3 main types of APIs that Data Engineers should be familiar with: 1) REST APIs which stand for representational state transfer. Here, interactions are state-less and each rest call is independent. Rest calls can change the systems state, but these changes are global. 2) GraphQl which was created at facebook as a query language for application data and an alternative to REST APIs. It allows you to retrieve multiple data models with a single request. It is built around JSON and returns data in a shape resembling the JSON query. 3) Webhooks, which are basically reverse apis.
+- An application database, or an OLAP system, stores the state of an application. It reads and writes individual data records at a high rate. They work well as application backends but are not well suited for analytics
+- ACID stands for atomicity, consistency, Isolation, and durability. Consistency means that any database read will return consistent results. Isolation means that if two updates are in flight concurrently for the same thing, the end database state will be consistent with the sequential execution of these updates in the order that they were submitted. Durability means that committed data will never be lost.
+- Online analytical processing systems, or OLAP systems, refer to any database system that supports high-scale interactive queries. "Online" means that the system is always listening for incoming queries. OLAP systems are typically storage and query systems for analysts.
+- Change data capture, or CDC, is a method for extracting each change event that occurs in a database.
+- CRUD stands for create, read, update, and delete.
+- An "Insert Only" pattern allows you to retain history directly within a table. Usually this is supplemented with a process date or a time stamp, and you add new records rather than updating or deleting existing records.
+- There are, in general, 3 types of times that should be captured in a data pipeline, generation time, ingested time, and processed time.
+- The first major type of source system is a relational database. Major considerations of relational database are: 1) The RDMS, which consists of a storage engine, a query optimizer, disaster recovery, etc 2) Lookups, it is important to understand how your database uses indexes 3) Query optimizer, which comes with the RDMS 4) Scaling and distribution -- do you want your db to scale horizontally or vertically 5) modeling patterns -- do you want normalized or wide tables 6) CRUD 7) Consistency
+- Relational Database are the most common type of application backend. Here, data is stored in a table of relations and each relation contains multiple fields. Each relation in the table has the same schema. 
+- In relational databases, normalization is the process of ensuring that data in records is not duplicated in multiple locations at once and prevents inconsistencies. 
+- Another major type of source system includes non-relational databases. Non-relational database abandon the whole "relational paradigm" and examples include: 1) key-value stores, which are basically just a hash map or a dictionary, that you might find in python 2) Document Stores, which are basically like a collection of key-value stores 3) Wide column, which is optimized to store massive amounts of data 4) Graph databases, which store data in a mathematical graph structure with nodes and edges 5) search databases 6) time series databases.
+
+## Chapter 6 - Storage
+- Storage Abstractions in Data Engineering include: 1) Data Lakes 2) Data Lakehouses 3) data warehouse 4) data platform.
+- Storage Systems in Data Engineering include: 1) HDFS 2) Cache/Memory based systems 3) RDMS 4) Object Storage 5) Streaming Storage
+- Raw Ingredients in terms of storage in data engineering include: 1) Disk Drives 2) Memory 3) Networking/CPU 4) Serialization 5) Compression 6) Caching 
+- Magnetic Disk Drives (HDDs): Worse than SSds at random access lookups, higher latency, lower IOPS and lower transfer speeds. Note: Object storage on magnetic disks have emerged as the leading option for large scale data storage in data lakes and cloud data warehouses.
+- Solid State Drives (SSDs): Store data as charges in flash memory cells. These are the standard for commericial deployment of OLTP systems. 
+- Random access memory (RAM): Attached to the CPU and mapped to the CPU address space. This stores the code and data that CPUs execute. It's more expensive than SSDs and slower than CPU cache. 
+- Networking and CP: CPUs handle the details of servicing requests, aggregating reads, and delivering writes. 
+- Serialization: Process of flattening data into a standard format that a reader would be able to decode.
+- Compression: Makes data smaller.
+- Caching: Stores frequently or recently accessed data in a fast access layer.
+- Distributed Storage: Coordinates the activities of multiple servers to store, retrieve, and process data faster and at a larger scale. Apache Spark, object storage, and cloud data warehouses rely on distributed storage architecture.
+- Eventual Consistency: Allows you to retrieve data quickly without verifying you have the latest version across all nodes. 
+- BASE: Stands for basically available, Soft State, and eventual consistency. 
+- Strong consistency: Means that any database read will return consistent values. 
+- Block Storage: A type of raw storage provided by SSDs and magnetic Disks. A block is the smallest addressable unit of data supported by a disk. 
+- Object Storage: Contains data of all shapes and sizes. This includes Txt, csvs, excel, images, audio, video, etc. In object storage, after the initial write the data becomes immutable. Object storage provides excellent performance for large scale batch reads and writes. Object storage is the gold standard of storage for data lakes. Lastly, object storage is basically a key/value store.
+- Memcached is basically a key-value store designed for caching query results, api call responses, and more. 
+- Redis: Like memcached, it is a key-value store, but designed to support more complex data types. 
+- Hadoop: Similar to object storage but combines compute and data together on the same node.
+- Indexes: provide a map of the table for particular fields and allows for extremely quick lookups of individual records. Without Indexes, databases need to scan the entire database to find the records that satisfy the where clause. Indexes are primarily used on primary keys and foreign keys and commonly used fields.
+- Columnar Serialization: allows a database to scan only the columns that are required by a query. Columnar databases perform well when large quantities of data must be scanned.
+- Partitioning: Is breaking a table into multi sub-tables by splitting it on a field. Date and time partitioning is extremely common. 
+- Clustering: Sorts your data by fields, where you colocate similar values.
+- Data Catalog is a centralized meta store for all data that exists in an organization. 
+- Separation of compute and storage has become increasingly common recently. For example, data lakehouses store data in object storage and spin up temporary compute in order to read and process it.
+- Colocation of compute and storage offers high performance and there has been a shift to this for a couple main reasons: Scalability, durability, and availability, to name a few.
 - 
