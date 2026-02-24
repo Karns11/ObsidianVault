@@ -1,12 +1,4 @@
-## Introduction
-- Creating my Account:
-	- email: Nathankarns6@gmail.com
-	- username: nathankarns6
-	- password: Lionsden1#
-- IAM Login Info (Recommended to always use this user when logging in):
-	- alias: aws-nathan-alias-v1
-	- username: nathan
-	- password: Lionsden1#
+
 ## What is Cloud Computing?
 - A Server is composed of 5 main things:
 	1.  CPU, which does the computations
@@ -114,4 +106,4 @@
 - EFS (Elastic File System): This is a managed NFS (Network File System) that can be mounted on 100s of EC2s. This works only with Linux EC2 instances and across multiple AZs. This is highly available, scalable, and expensive (about 3x the price of EBS volumes), you pay per use and no capacity planning. EFS is something that can be shared across multiple different instances and all those instances will see the same files, for example. This is different from EBS. EFS Also has an infrequent access storage class, which is a storage class that is optimized for files that are not accessed daily and gives you up to 92% discounts. EFS IA will automatically move your files based on their last accessed date, once you enable it.
 - Shared Responsibility Model for EC2 Storage: 1) AWS: Infrastructure, Replication for data for EBS Volumes and EFS drives, Replacing faulty hardware, ensuring their employees cannot access your data. 2) You: Setting up backup/snapshot procedures, setting up data encryption, any data on the drives.
 - Amazon FSx: Launches 3rd party high performance file systems on AWS, it is a fully managed service. Two main ones: 1) Amazon FSx for windows File Server, which is a network file system for windows users 2) Amazon FSx for Lustre, this is storage for high performance computing, good for ML, analytics, Video processing, financial modeling, etc. 
-- EC2 Instance Storage Summary: 1) EBS Volumes are network drives attached to one EC2 instance at a time, mapped to AZ's, and you can use snapshots for backups or transferring data across AZs. 2) AMIs are ready-to-use EC2 instances with our customizations. 3) EC2 Image builders automate the building, testing, and distribution of AMIs. 4) EC2 Instance stores are high-performance hardware disks attached to our EC2 instance and are lost when the instance is stopped/terminated 5) EFS is a network file system that can be attached to 100s of instances in a region. 6) EFS-IA is a cost optimized storage class for infrequently accessed files 7) FSx for windows is a network file system for windows users 8) FSx for Lustre is a high performance computing linux file system.
+- EC2 Instance Storage Summary: 1) EBS Volumes are network drives attached to one EC2 instance at a time, mapped to AZ's, and you can use snapshots for backups or transferring data across AZs. 2) AMIs are ready-to-use EC2 instances with our customizations. 3) EC2 Image builders automate the building, testing, and distribution of AMIs. 4) EC2 Instance stores are high-performance hardware disks attached to our EC2 instance and are lost when the instance is stopped/terminated 5) EFS is a (SHARED) network file system that can be attached to 100s of instances in a region. 6) EFS-IA is a cost optimized storage class for infrequently accessed files 7) FSx for windows is a network file system for windows users 8) FSx for Lustre is a high performance computing linux file system.
